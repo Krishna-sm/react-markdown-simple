@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useState } from 'react'
+import ReactMarkdown from 'react-markdown';
+import Main from './Main';
+const App = () => {
+  const [text,setText] = useState('Welcome to krishna tech');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <h1 align='center'>Markdown Editior</h1>
+      <div className="center-div">
+        <textarea value={text} onChange={(e)=>setText(e.target.value)} className='left-side'></textarea>
+        <div className='right-side'><ReactMarkdown>{text}</ReactMarkdown></div>
+      </div>
+      <Main/>
+    </>
+  )
 }
 
-export default App;
+export default App
